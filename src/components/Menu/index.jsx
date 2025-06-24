@@ -17,13 +17,9 @@ export const Menu = ( props ) => {
                     image="/cups/espresso.png"
                     layers={[
                         {
-                        color: '#fbdf5b',
-                        label: 'citrón',
-                        },
-                        {
                         color: '#613916',
                         label: 'espresso',
-                        },
+                        }
                     ]}
                     />
 
@@ -34,13 +30,9 @@ export const Menu = ( props ) => {
                     image="/cups/doppio.png"
                     layers={[
                         {
-                        color: '#fbdf5b',
-                        label: 'citrón',
-                        },
-                        {
                         color: '#613916',
                         label: 'espresso',
-                        },
+                        }
                     ]}
                     />
 
@@ -51,8 +43,8 @@ export const Menu = ( props ) => {
                     image="/cups/lungo.png"
                     layers={[
                         {
-                        color: '#fbdf5b',
-                        label: 'citrón',
+                        color: '#b0dee1',
+                        label: 'voda',
                         },
                         {
                         color: '#613916',
