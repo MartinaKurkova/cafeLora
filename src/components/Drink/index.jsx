@@ -22,12 +22,12 @@ export const Drink = ({ id, name, ordered, image, layers }) => {
                     ))}
                     </div>
                 </div>
-                <form className="drink__controls">
+                <form className="drink__controls" data-id={id} data-ordered={ordered}>
                     <input type="hidden" className="order-id" value="2" />
-                    <button className="order-btn">
-                    Objednat
+                    <button className={ordered ? "order-btn order-btn--ordered" : "order-btn"}>{ordered ? "Zrušit" : "Objednat"}
                     </button>
                 </form>
                 </div>
     )
 }
+

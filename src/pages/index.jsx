@@ -13,9 +13,7 @@ const loadPage = async () => {
   const response = await fetch("http://localhost:4000/api/drinks");
   const json = await response.json();
   const drinks = json.data;
-  console.log(drinks);
   
-
   document.querySelector('#root').innerHTML = render(
     <div className="page">
       <Header />
@@ -28,8 +26,8 @@ const loadPage = async () => {
       <Footer />
     </div>
   );
-  
-  // Posluchače
+
+  // Posluchače navigace
   const rollout = document.querySelector(".rollout-nav");
   const navBtn = document.querySelector(".nav-btn");
 
@@ -42,7 +40,35 @@ const loadPage = async () => {
       rollout.classList.add("nav-closed");
     }
   });
-};
 
+  // Posluchače objednání 
+  const formEls = document.querySelectorAll(".drink__controls");
+
+  formEls.forEach((formEl) => {
+  formEl.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const drinkId = formEl.dataset.id;
+    const ordered = formEl.dataset.ordered === "true";
+    const newOrderedState = !ordered;
+
+    const response = await fetch(`http://localhost:4000/api/drinks/${drinkId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify([
+        { op: "replace", path: "/ordered", value: newOrderedState },
+      ]),
+    });
+
+    const data = await response.json();
+    console.log("Odpověď od API:", data);
+    window.location.reload();
+  });
+});
+
+
+};
 
 loadPage();
