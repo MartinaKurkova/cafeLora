@@ -1,12 +1,13 @@
 import "./style.css";
 
-export const Header = (props) => {
+export const Header = ( {showMenu} ) => {
   return (
     <header id="home">
       <div className="header__content container">
         <div className="site-logo"></div>
 
-        <div className="navigation">
+        { showMenu ? (
+          <div className="navigation">
           <button className="nav-btn"></button>
           <nav className="rollout-nav nav-closed">
             <a href="#home">domů</a>
@@ -15,7 +16,12 @@ export const Header = (props) => {
             <a href="#contact">kontakt</a>
           </nav>
         </div>
-      </div>
+        ) : (
+          <nav className="inline-nav">
+            <a href="/">Hlavní stránka</a>
+          </nav>
+        )}
+      </div> 
     </header>
   )
 }
