@@ -1,9 +1,8 @@
 import "./style.css";
 
-export const Gallery = ( props ) => {
-    return (
-        <section className="gallery" id="gallery">
-            <div className="container">
+export const Gallery = () => (
+    <section className="gallery" id="gallery">
+        <div className="container">
             <div className="gallery__content">
                 <h2>Nově otevřeno!</h2>
                 <div className="gallery__cols">
@@ -22,7 +21,6 @@ export const Gallery = ( props ) => {
                 </p>
                 </div>
             </div>
-            </div>
-        </section>
-    )
-}
+        </div>
+    </section>
+);

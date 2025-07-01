@@ -21,4 +21,4 @@ export const Order = ( {items} ) => {
             )}
         </div>
     );
-}
+};
